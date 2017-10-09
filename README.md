@@ -26,3 +26,37 @@ dependencies {
 	compile 'com.github.frendyxzc:KExtension:0.0.1'
 }
 ```
+
+-----
+
+## Extensions:
+
+* Activity
+	- gotoBrowser
+
+* AppBarLayout
+	- setAppbarScrollFlag
+
+* EditText
+	- hideKeyboard
+
+* Handler
+	- postDelayedToUI
+	- postToUI
+
+* ImageView
+	- loadImage
+	- loadImageCircle
+	- loadImageRoundedCorners
+	- loadImageFliter
+	- loadImageColorHolder
+
+* SearchView
+	- hideKeyboard
+	- setTextStyle
+
+* String
+	- containEmoji
+
+* View
+	- doAnimation
