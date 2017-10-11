@@ -1,4 +1,4 @@
-package com.iimedia.appbase.extension
+package vip.frendy.extension.ext
 
 import android.support.design.widget.AppBarLayout
 

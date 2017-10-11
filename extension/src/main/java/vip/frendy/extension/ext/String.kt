@@ -1,4 +1,4 @@
-package com.iimedia.appbase.extension
+package vip.frendy.extension.ext
 
 /**
  * Created by frendy on 2017/8/11.

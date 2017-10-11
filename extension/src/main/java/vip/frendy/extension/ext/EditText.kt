@@ -1,4 +1,4 @@
-package com.iimedia.appbase.extension
+package vip.frendy.extension.ext
 
 import android.app.Activity
 import android.content.Context

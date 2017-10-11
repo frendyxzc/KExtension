@@ -1,4 +1,4 @@
-package vip.frendy.extension
+package vip.frendy.extension.ext
 
 import android.graphics.Bitmap
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory
