@@ -9,5 +9,17 @@
         android:id="@+id/swipeBackActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Swipe Back Activity"/>
+        android:text="Swipe back Activity"/>
+
+    <Button
+        android:id="@+id/fragmentActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fragment Activity"/>
+
+    <Button
+        android:id="@+id/swipeBackFragmentActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swipe back fragment Activity"/>
 </LinearLayout>

@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
 /**
- * Created by iiMedia on 2017/10/9.
+ * Created by frendy on 2017/10/9.
  */
 class MainActivity: AppCompatActivity() {
 
@@ -16,6 +16,14 @@ class MainActivity: AppCompatActivity() {
 
         swipeBackActivity.setOnClickListener {
             startActivity<SwipeBackActivity>()
+        }
+
+        fragmentActivity.setOnClickListener {
+            startActivity<FragmentActivity>()
+        }
+
+        swipeBackFragmentActivity.setOnClickListener {
+            startActivity<SwipeBackFragmentActivity>()
         }
     }
 }
