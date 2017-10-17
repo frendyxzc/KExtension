@@ -23,7 +23,7 @@ allprojects {
 
 ```
 dependencies {
-	compile 'com.github.frendyxzc:KExtension:0.0.1'
+	compile 'com.github.frendyxzc:KExtension:0.0.2'
 }
 ```
 
@@ -60,3 +60,16 @@ dependencies {
 
 * View
 	- doAnimation
+
+-----
+
+## Base:
+
+* Activity
+	- BaseActivity
+	- BaseFragmentActivity
+	- BaseSwipeBackActivity
+	- BaseSwipeBackFragmentActivity
+
+* Fragment
+	- BaseFragment
