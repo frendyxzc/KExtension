@@ -33,6 +33,10 @@ fun ImageView.loadImage(url: String) {
     Glide.with(context).load(url).centerCrop().into(this)
 }
 
+fun ImageView.loadImage(imageId: Int) {
+    Glide.with(context).load(imageId).fitCenter().into(this)
+}
+
 fun ImageView.loadImageColorHolder(url: String, holderColor: Int) {
     Glide.with(context).load(url)
             .placeholder(holderColor)
