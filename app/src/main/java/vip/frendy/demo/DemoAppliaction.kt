@@ -2,6 +2,7 @@ package vip.frendy.demo
 
 import android.app.Application
 import android.util.Log
+import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.monitor.Monitor
 import vip.frendy.extension.monitor.interfaces.IActivity
 
@@ -15,17 +16,17 @@ class DemoAppliaction: Application() {
 
         Monitor.getInstance().setEnable(true)
         Monitor.getInstance().init(object : IActivity {
-            override fun onCreate(localClassName: String) {
-                Log.i("Monitor", "** onCreate : ${localClassName}")
+            override fun onCreate(activity: BaseActivity) {
+                Log.i("Monitor", "** onCreate : ${activity.localClassName}")
             }
-            override fun onResume(localClassName: String) {
-                Log.i("Monitor", "** onResume : ${localClassName}")
+            override fun onResume(activity: BaseActivity) {
+                Log.i("Monitor", "** onResume : ${activity.localClassName}")
             }
-            override fun onPause(localClassName: String) {
-                Log.i("Monitor", "** onPause : ${localClassName}")
+            override fun onPause(activity: BaseActivity) {
+                Log.i("Monitor", "** onPause : ${activity.localClassName}")
             }
-            override fun onDestroy(localClassName: String) {
-                Log.i("Monitor", "** onDestroy : ${localClassName}")
+            override fun onDestroy(activity: BaseActivity) {
+                Log.i("Monitor", "** onDestroy : ${activity.localClassName}")
             }
         })
     }

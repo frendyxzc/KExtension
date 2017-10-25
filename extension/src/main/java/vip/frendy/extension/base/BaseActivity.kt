@@ -11,21 +11,21 @@ abstract class BaseActivity: FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Monitor.getInstance().onActivityCreated(localClassName)
+        Monitor.getInstance().onActivityCreated(this)
     }
 
     override fun onResume() {
         super.onResume()
-        Monitor.getInstance().onActivityResume(localClassName)
+        Monitor.getInstance().onActivityResume(this)
     }
 
     override fun onPause() {
         super.onPause()
-        Monitor.getInstance().onActivityPause(localClassName)
+        Monitor.getInstance().onActivityPause(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Monitor.getInstance().onActivityDestroy(localClassName)
+        Monitor.getInstance().onActivityDestroy(this)
     }
 }

@@ -1,5 +1,6 @@
 package vip.frendy.extension.monitor
 
+import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.monitor.interfaces.IActivity
 
 /**
@@ -27,19 +28,19 @@ class Monitor {
         this.enable = enable
     }
 
-    fun onActivityCreated(localClassName: String) {
-        if(enable) iActivity?.onCreate(localClassName)
+    fun onActivityCreated(activity: BaseActivity) {
+        if(enable) iActivity?.onCreate(activity)
     }
 
-    fun onActivityResume(localClassName: String) {
-        if(enable) iActivity?.onResume(localClassName)
+    fun onActivityResume(activity: BaseActivity) {
+        if(enable) iActivity?.onResume(activity)
     }
 
-    fun onActivityPause(localClassName: String) {
-        if(enable) iActivity?.onPause(localClassName)
+    fun onActivityPause(activity: BaseActivity) {
+        if(enable) iActivity?.onPause(activity)
     }
 
-    fun onActivityDestroy(localClassName: String) {
-        if(enable) iActivity?.onDestroy(localClassName)
+    fun onActivityDestroy(activity: BaseActivity) {
+        if(enable) iActivity?.onDestroy(activity)
     }
 }
