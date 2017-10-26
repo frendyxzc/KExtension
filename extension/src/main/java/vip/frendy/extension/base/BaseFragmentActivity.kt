@@ -8,7 +8,7 @@ import vip.frendy.extension.R
 /**
  * Created by frendy on 2017/10/11.
  */
-open class BaseFragmentActivity: BaseActivity() {
+abstract class BaseFragmentActivity: BaseActivity() {
     protected var currentFragment: Fragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

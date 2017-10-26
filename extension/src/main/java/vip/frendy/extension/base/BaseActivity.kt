@@ -2,12 +2,13 @@ package vip.frendy.extension.base
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
+import android.view.View
 import vip.frendy.extension.monitor.Monitor
 
 /**
  * Created by frendy on 2017/10/11.
  */
-abstract class BaseActivity: FragmentActivity() {
+abstract class BaseActivity: FragmentActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,4 +29,11 @@ abstract class BaseActivity: FragmentActivity() {
         super.onDestroy()
         Monitor.getInstance().onActivityDestroy(this)
     }
+
+    override fun onClick(v: View?) {
+        Monitor.getInstance().onViewClick(v)
+        onViewClick(v)
+    }
+
+    abstract fun onViewClick(v: View?)
 }

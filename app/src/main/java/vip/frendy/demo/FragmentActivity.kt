@@ -1,6 +1,7 @@
 package vip.frendy.demo
 
 import android.os.Bundle
+import android.view.View
 import vip.frendy.demo.fragment.FragmentDemo
 import vip.frendy.extension.base.BaseFragmentActivity
 
@@ -13,5 +14,9 @@ class FragmentActivity: BaseFragmentActivity() {
         super.onCreate(savedInstanceState)
 
         setDefaultFragment(FragmentDemo.getInstance())
+    }
+
+    override fun onViewClick(v: View?) {
+
     }
 }

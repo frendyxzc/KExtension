@@ -1,6 +1,7 @@
 package vip.frendy.demo
 
 import android.os.Bundle
+import android.view.View
 import vip.frendy.demo.fragment.FragmentList
 import vip.frendy.extension.base.BaseSwipeBackFragmentActivity
 
@@ -13,5 +14,9 @@ class SwipeBackFragmentActivity: BaseSwipeBackFragmentActivity() {
         super.onCreate(savedInstanceState)
 
         setDefaultFragment(FragmentList.getInstance())
+    }
+
+    override fun onViewClick(v: View?) {
+
     }
 }

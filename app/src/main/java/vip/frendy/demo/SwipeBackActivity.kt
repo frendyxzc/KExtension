@@ -1,6 +1,7 @@
 package vip.frendy.demo
 
 import android.os.Bundle
+import android.view.View
 import vip.frendy.extension.base.BaseSwipeBackActivity
 
 /**
@@ -11,5 +12,9 @@ class SwipeBackActivity: BaseSwipeBackActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_swipeback)
+    }
+
+    override fun onViewClick(v: View?) {
+
     }
 }

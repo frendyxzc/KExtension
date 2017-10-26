@@ -8,7 +8,7 @@ import vip.frendy.extension.utils.swipeBack.app.SwipeBackActivityHelper
 /**
  * Created by frendy on 2017/10/11.
  */
-open class BaseSwipeBackActivity: BaseActivity() {
+abstract class BaseSwipeBackActivity: BaseActivity() {
     private var mSwipeBackLayout: SwipeBackLayout? = null
     private var mHelper: SwipeBackActivityHelper? = null
 
