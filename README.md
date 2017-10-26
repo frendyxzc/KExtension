@@ -73,3 +73,14 @@ dependencies {
 
 * Fragment
 	- BaseFragment
+
+-----
+
+## Monitor:
+
+* Activity
+	- onCreate
+	- onResume
+	- onPause
+	- onDestroy
+	- onClick
