@@ -23,7 +23,7 @@ class Monitor {
     private var iActivity: IActivity? = null
     private var iViewClick: IViewClick? = null
 
-    fun init(iActivity: IActivity, iViewClick: IViewClick) {
+    fun init(iActivity: IActivity?, iViewClick: IViewClick?) {
         this.iActivity = iActivity
         this.iViewClick = iViewClick
     }

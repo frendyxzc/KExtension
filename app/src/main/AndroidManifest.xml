@@ -22,6 +22,8 @@
         <activity android:name=".FragmentActivity"/>
         <activity android:name=".SwipeBackFragmentActivity"/>
 
+        <activity android:name=".AnnotationsActivity"/>
+
     </application>
 
 </manifest>
