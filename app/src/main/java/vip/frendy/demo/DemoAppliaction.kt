@@ -6,6 +6,7 @@ import android.view.View
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.monitor.Monitor
 import vip.frendy.extension.monitor.interfaces.IActivity
+import vip.frendy.extension.monitor.interfaces.IApi
 import vip.frendy.extension.monitor.interfaces.IViewClick
 
 /**
@@ -34,10 +35,25 @@ class DemoAppliaction: Application() {
         }
     }
 
+    val mStartTimeMap = hashMapOf<String, Long>()
+    val iApi = object : IApi {
+        override fun onStart(tag: String) {
+            mStartTimeMap.put(tag, System.currentTimeMillis())
+        }
+        override fun onEnd(tag: String, success: Boolean, err: String) {
+            if(mStartTimeMap.containsKey(tag)) {
+                val cost = System.currentTimeMillis() - mStartTimeMap.get(tag)!!
+                mStartTimeMap.remove(tag)
+
+                Log.i("Monitor", "** api - ${tag} - ${success} - ${err} : ${cost}ms")
+            }
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
 
         Monitor.getInstance().setEnable(true)
-        Monitor.getInstance().init(iActivity, iViewClick)
+        Monitor.getInstance().init(iActivity, iViewClick, iApi)
     }
 }

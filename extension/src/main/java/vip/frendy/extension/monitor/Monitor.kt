@@ -3,6 +3,7 @@ package vip.frendy.extension.monitor
 import android.view.View
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.monitor.interfaces.IActivity
+import vip.frendy.extension.monitor.interfaces.IApi
 import vip.frendy.extension.monitor.interfaces.IViewClick
 
 /**
@@ -22,10 +23,12 @@ class Monitor {
     private var enable: Boolean = false
     private var iActivity: IActivity? = null
     private var iViewClick: IViewClick? = null
+    private var iApi: IApi? = null
 
-    fun init(iActivity: IActivity?, iViewClick: IViewClick?) {
+    fun init(iActivity: IActivity?, iViewClick: IViewClick?, iApi: IApi?) {
         this.iActivity = iActivity
         this.iViewClick = iViewClick
+        this.iApi = iApi
     }
 
     fun setEnable(enable: Boolean) {
@@ -53,5 +56,16 @@ class Monitor {
      */
     fun onViewClick(v: View?) {
         if(enable) iViewClick?.onViewClick(v)
+    }
+
+    /**
+     * Api
+     */
+    fun onApiStart(tag: String) {
+        if(enable) iApi?.onStart(tag)
+    }
+
+    fun onApiEnd(tag: String, success: Boolean = true, err: String = "NoError") {
+        if(enable) iApi?.onEnd(tag, success, err)
     }
 }
