@@ -84,3 +84,7 @@ dependencies {
 	- onPause
 	- onDestroy
 	- onClick
+
+* Api
+
+* Crash

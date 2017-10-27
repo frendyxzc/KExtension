@@ -32,6 +32,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$support_version"
     compile "com.android.support:design:$support_version"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.anko:anko-common:$anko_version"
 
     compile "com.github.bumptech.glide:glide:3.7.0"
     compile "jp.wasabeef:glide-transformations:2.0.2"

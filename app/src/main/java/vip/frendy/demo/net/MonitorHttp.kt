@@ -1,6 +1,5 @@
 package vip.frendy.demo.net
 
-import android.util.Log
 import vip.frendy.extension.monitor.Monitor
 import vip.frendy.khttp.Callback
 import vip.frendy.khttp.http

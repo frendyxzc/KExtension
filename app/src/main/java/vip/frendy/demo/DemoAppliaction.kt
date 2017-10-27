@@ -7,7 +7,10 @@ import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.monitor.Monitor
 import vip.frendy.extension.monitor.interfaces.IActivity
 import vip.frendy.extension.monitor.interfaces.IApi
+import vip.frendy.extension.monitor.interfaces.ICrash
 import vip.frendy.extension.monitor.interfaces.IViewClick
+import java.io.File
+
 
 /**
  * Created by frendy on 2017/10/25.
@@ -50,10 +53,26 @@ class DemoAppliaction: Application() {
         }
     }
 
+    val iCrash = object : ICrash {
+        override fun onCrash(info: String) {
+            Log.i("Monitor", "** onCrash : ${info}")
+        }
+        override fun onCrashFileUpload(file: String, filename: String) {
+            Log.i("Monitor", "** onCrashFileUpload : ${filename}, path: ${file}")
+
+            //Todo: impl function to upload file here
+            File(file).delete()
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
 
+        // step 1, set monitor enable
         Monitor.getInstance().setEnable(true)
-        Monitor.getInstance().init(iActivity, iViewClick, iApi)
+        // step 2, init monitor
+        Monitor.getInstance().init(
+                this.applicationContext,
+                iActivity, iViewClick, iApi, iCrash)
     }
 }

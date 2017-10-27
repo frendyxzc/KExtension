@@ -21,6 +21,7 @@ class MainActivity: BaseActivity() {
         fragmentActivity.setOnClickListener(this)
         swipeBackFragmentActivity.setOnClickListener(this)
         annotationsActivity.setOnClickListener(this)
+        javaActivity.setOnClickListener(this)
     }
 
     override fun onViewClick(v: View?) {
@@ -29,6 +30,7 @@ class MainActivity: BaseActivity() {
             R.id.fragmentActivity -> startActivity<FragmentActivity>()
             R.id.swipeBackFragmentActivity -> startActivity<SwipeBackFragmentActivity>()
             R.id.annotationsActivity -> startActivity<AnnotationsActivity>()
+            R.id.javaActivity -> startActivity<JavaActivity>()
         }
     }
 }
