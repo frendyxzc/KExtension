@@ -9,4 +9,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
         android:text="swipe back activity"/>
+
+    <Button
+        android:id="@+id/showInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="show collected infos"/>
 </LinearLayout>

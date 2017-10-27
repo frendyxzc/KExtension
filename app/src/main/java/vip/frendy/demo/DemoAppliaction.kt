@@ -3,6 +3,7 @@ package vip.frendy.demo
 import android.app.Application
 import android.util.Log
 import android.view.View
+import vip.frendy.demo.model.Info
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.collector.Collector
 import vip.frendy.extension.collector.interfaces.ICollector
@@ -105,6 +106,8 @@ class DemoAppliaction: Application() {
     val iCollector = object : ICollector {
         override fun collect(info: HashMap<String, String>, timestamp: Long) {
             Log.i("Collector", "** COLLECTOR - ${timestamp.toDate()} : ${info}")
+
+            Info.save(this@DemoAppliaction, Info(info, timestamp))
         }
     }
 
