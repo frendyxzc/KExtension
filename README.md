@@ -23,7 +23,7 @@ allprojects {
 
 ```
 dependencies {
-	compile 'com.github.frendyxzc:KExtension:0.0.2'
+	compile 'com.github.frendyxzc:KExtension:0.0.3'
 }
 ```
 
