@@ -1,5 +1,6 @@
 package vip.frendy.extension.collector
 
+import org.jetbrains.anko.doAsync
 import vip.frendy.extension.collector.interfaces.ICollector
 
 /**
@@ -27,7 +28,7 @@ class Collector {
         this.enable = enable
     }
 
-    fun collect(info: HashMap<String, String>, timestamp: Long = System.currentTimeMillis()) {
+    fun collect(info: HashMap<String, String>, timestamp: Long = System.currentTimeMillis()) = doAsync {
         if(enable) iCollector?.collect(info, timestamp)
     }
 }

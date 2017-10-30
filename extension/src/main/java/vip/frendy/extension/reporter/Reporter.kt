@@ -53,7 +53,7 @@ class Reporter {
         if(enable) iReporter?.upload()
     }
 
-    fun fileUpload(file: String) {
+    fun fileUpload(file: String) = doAsync {
         if(enable) iReporter?.fileUpload(file)
     }
 }
