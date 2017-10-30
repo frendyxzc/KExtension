@@ -3,6 +3,7 @@ package vip.frendy.demo
 import android.app.Application
 import android.util.Log
 import android.view.View
+import org.json.JSONObject
 import vip.frendy.demo.model.Info
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.collector.Collector
@@ -13,6 +14,8 @@ import vip.frendy.extension.monitor.interfaces.IActivity
 import vip.frendy.extension.monitor.interfaces.IApi
 import vip.frendy.extension.monitor.interfaces.ICrash
 import vip.frendy.extension.monitor.interfaces.IViewClick
+import vip.frendy.extension.reporter.Reporter
+import vip.frendy.extension.reporter.interfaces.IReporter
 import java.io.File
 
 
@@ -95,7 +98,7 @@ class DemoAppliaction: Application() {
         override fun onCrashFileUpload(file: String, filename: String) {
             Log.i("Monitor", "** onCrashFileUpload : ${file}")
 
-            //Todo: impl function to upload file here
+            Reporter.getInstance().fileUpload(file)
             File(file).delete()
         }
     }
@@ -108,6 +111,29 @@ class DemoAppliaction: Application() {
             Log.i("Collector", "** COLLECTOR - ${timestamp.toDate()} : ${info}")
 
             Info.save(this@DemoAppliaction, Info(info, timestamp))
+        }
+    }
+
+    /**
+     * Reporter Observer
+     */
+    val iReporter = object : IReporter {
+        override fun upload() {
+            val json = JSONObject()
+            val id = System.currentTimeMillis().toString()
+
+            val infos = Info.queryAll(this@DemoAppliaction)
+            for((index, info) in infos.withIndex()) {
+                json.put(id + "-$index", info.toString())
+            }
+            Info.delete(this@DemoAppliaction, infos)
+
+            Log.i("Reporter", "** UPLOAD-INFOS : ${json.toString()}")
+            //Todo: impl function to upload info here
+        }
+        override fun fileUpload(file: String) {
+            Log.i("Reporter", "** FILE-UPLOAD : ${file}")
+            //Todo: impl function to upload file here
         }
     }
 
@@ -125,5 +151,10 @@ class DemoAppliaction: Application() {
         Monitor.getInstance().init(
                 this.applicationContext,
                 iActivity, iViewClick, iApi, iCrash)
+
+        // step 1, set reporter enable
+        Reporter.getInstance().setEnable(true)
+        // step 2, init reporter
+        Reporter.getInstance().init(iReporter, Reporter.STRATEGY_DEFAULT)
     }
 }
