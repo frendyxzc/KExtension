@@ -77,11 +77,11 @@ class Monitor {
     /**
      * Api
      */
-    fun onApiStart(tag: String) {
+    fun onApiStart(tag: String) = doAsync {
         if(enable) iApi?.onStart(tag)
     }
 
-    fun onApiEnd(tag: String, success: Boolean = true, err: String = "NoError") {
+    fun onApiEnd(tag: String, success: Boolean = true, err: String = "NoError") = doAsync {
         if(enable) iApi?.onEnd(tag, success, err)
     }
 }

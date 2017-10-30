@@ -51,12 +51,20 @@ dependencies {
 	- loadImageFliter
 	- loadImageColorHolder
 
+* Long
+	- toDate
+
+* Network
+	- getNetworkState
+	- ping
+
 * SearchView
 	- hideKeyboard
 	- setTextStyle
 
 * String
 	- containEmoji
+	- getTopDomain
 
 * View
 	- doAnimation

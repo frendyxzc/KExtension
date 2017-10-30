@@ -8,6 +8,8 @@ import vip.frendy.demo.model.Info
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.collector.Collector
 import vip.frendy.extension.collector.interfaces.ICollector
+import vip.frendy.extension.ext.Network
+import vip.frendy.extension.ext.getTopDomain
 import vip.frendy.extension.ext.toDate
 import vip.frendy.extension.monitor.Monitor
 import vip.frendy.extension.monitor.interfaces.IActivity
@@ -78,10 +80,13 @@ class DemoAppliaction: Application() {
                 val cost = System.currentTimeMillis() - mStartTimeMap.get(tag)!!
                 mStartTimeMap.remove(tag)
 
-                Log.i("Monitor", "** api - ${tag} - ${success} - ${err} : ${cost}ms")
+                val network = Network(this@DemoAppliaction).getNetworkState()
+                val domain = tag.getTopDomain()
+                val ping = if(success) 1 else Network(this@DemoAppliaction).ping(domain)
+                Log.i("Monitor", "** api - ${tag} - ${success} - ${err} : ${cost}ms, ${network}, ${ping}")
 
                 Collector.getInstance().collect(HashMap<String, String>().apply {
-                    put("Api", "${tag} - ${success} - ${err} : ${cost}ms")
+                    put("Api", "${tag} - ${success} - ${err} : ${cost}ms, ${network}, ${ping}")
                 })
             }
         }
