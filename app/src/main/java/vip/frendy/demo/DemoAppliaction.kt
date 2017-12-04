@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import org.json.JSONObject
 import vip.frendy.demo.model.Info
+import vip.frendy.demo.utils.TypefaceUtil
 import vip.frendy.extension.base.BaseActivity
 import vip.frendy.extension.collector.Collector
 import vip.frendy.extension.collector.interfaces.ICollector
@@ -144,6 +145,8 @@ class DemoAppliaction: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        TypefaceUtil.replaceSystemDefaultFont(this,"fonts/comic.ttf");
 
         // step 1, set collector enable
         Collector.getInstance().setEnable(true)
